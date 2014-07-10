@@ -1,0 +1,96 @@
+===========================================================
+VIA VT6102 Rhine II Another OS/2 NDIS 2.0.1 MAC driver 1.06
+===========================================================
+
+1.Introduction
+
+VIA VT6102 is of the 2nd generation of VIA's fast ethernet Rhine series.
+
+
+Included files are:
+vfet2a.os2	NDIS 2.0.1 MAC driver
+vfet2a.nif	Network Information File
+vfet2a.sym	Symbol Map file
+vfet2a.lnk	Document (this file)
+source.zip	source files
+
+You could download the latest file on the gomi:NDIS MAC Drivers page,
+URL http://www.os2warp.be/index2.php?name=gomindis .
+
+
+2.No Warranty
+
+This code is provided 'AS IS' and any warranties are disclaimed.
+
+
+3.Functional restrictions
+
+- Wake-on-LAN is not supported.
+
+
+4.Note
+
+>VT6102 requires dword aligned buffer. The double buffer method is used 
+>for the trasmit queues.
+No, No! VT6102 has no restriction on the transmit buffer address alignment.
+The multiple fragments method is used. Backward to vfet3a.
+
+
+5.Redistribution with modification
+
+Your should add your copyright notice, 
+"(c)Copyright 2005 your name. All rights reserved."
+and remove mine (if it exists),
+"(c)Copyright 2005 chagrin. Some rights reserved."
+
+This means that the modified binary/source is not mine, but yours, 
+regardless of the degree of the modification. 
+You can redistribute, of course, that for the commercial purpose 
+without any fee to me, without releasing the source, if you want.
+
+Don't forget that I'm never liable for your product.
+(You, also, should add a disclaimer.)
+
+
+6.Acknowledgement
+
+Bent Nielsen tested with many LOM chips.
+
+
+7.History
+
+ver.1.06 - 12/17, 2005.
+- 1 new keyword, IRQ15OVR, was added.
+
+ver.1.05 - 11/15, 2005.
+- Workaround for swith.os2 of Virtual PC.
+- 1 new keyword, OPENBIND, is added to work around for 'transmit before open'.
+
+ver.1.04 - 07/23, 2005.
+- MAC address and PHY address are simply reloaded instead of reading 
+  directly EEPROM contents.
+
+ver.1.03 - 07/14, 2005.
+- Multiple fragments for the transmit and receive. Backward to vfet3a.
+- Chip revision check again. The range is [0x40..0x7f].
+
+ver.1.02 - 07/09, 2005.
+- Chip revision check code was removed.
+- Clear bit 0 in configuration A register. (reject magic packet?)
+
+ver.1.01 - 07/07, 2005.
+- Medium link status polling logic was modified.
+- Reload EEPROM contents code was added.
+- PHY specific work-around code was added.(from solaris driver)
+
+ver.1.00 - 07/03, 2005.
+-  Initial release. Based on vfet3a 1.00.
+
+
+8.Contact to the author
+
+Access os2warp.be Technical Support Center,
+URL http://www.os2warp.be/support/
+ or
+Email to YANAGIHARA Nobuyuki,
+ <VYL00513@nifty.ne.jp>
